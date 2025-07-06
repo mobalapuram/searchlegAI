@@ -1,0 +1,91 @@
+body {
+    height: 100vh;
+    background-image: url(searchlegAIbg.jpeg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+}
+
+.header {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 66px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+}
+
+.bar {
+    width: 500px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 14px;
+    border-radius: 28px;
+    background-color: #ebe7e9;
+    height: 5vh;
+    margin-bottom: 15px;
+}
+
+#searchInput {
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #0f1634;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.material-symbols-outlined {
+    display: block;
+    transform: translate(170px);
+    outline: none;
+    border: none;
+    background-color: #ebe7e9;
+    color: #0f1634;
+}
+
+a {
+    text-decoration: none;
+    color: #0f1634;
+    font-size: 24px;
+    font-optical-sizing: auto;
+    font-style: oblique;
+    padding: 8px;
+    text-align: center;
+    background-color: #ebe7e9;
+    border-radius: 28px;
+    width: fit-content;
+    transition: .5s ease;
+}
+
+a:hover {
+    font-size: 30px;
+}
+
+#results {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: auto;
+    width: 500px;
+    flex-direction: column;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}

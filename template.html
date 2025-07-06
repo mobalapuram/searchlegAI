@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case Details</title>
+  <link rel="stylesheet" href="template.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Lexend+Giga:wght@100..900&family=Nanum+Myeongjo&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="Title">
+        <h1 class="caseTitle" id="title"></h1>
+    </div>
+
+    <div class="odddiv">
+        <h1 class="oddheadings">Summary</h1>
+        <p class="oddbody" id="summary"></p>
+    </div>
+
+    <div class="evendiv">
+        <h1 class="headings">Jurisdiction</h1>
+        <p class="evenbody" id="jurisdiction"></p>
+    </div>
+
+    <div id="LegalIssues" class="odddiv">
+        <h1 class="oddheadings">Legal Issues</h1>
+        <ul class="oddbody" id="issues"></ul>
+    </div>
+
+    <div class="evendiv">
+        <h1 class="headings">Sources</h1>
+        <p><a class="evenbody" id="source" target="_blank">Original source</a></p> 
+    </div>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+      
+    const supabase = createClient('https://wrvqdlwfcyioolletboe.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndydnFkbHdmY3lpb29sbGV0Ym9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg3MTA3NDksImV4cCI6MjA2NDI4Njc0OX0.O-vWxkGJcVIa9ZwlMgD63sWiOJ_ckZ1Q-ogGMkkL9ws');
+    console.log("Supabase connected:", supabase);
+
+    async function loadCase() {
+      const slug = new URLSearchParams(window.location.search).get('slug');
+      console.log("🔍 Slug from URL:", slug);
+     
+      if (!slug) {
+        document.body.innerHTML = "<p>No slug found in URL.</p>";
+        return;
+     }
+
+      const { data, error } = await supabase
+        .from('ai-legal-cases')
+        .select('*')
+        .eq('slug', slug)
+
+      if (error || !data) {
+        document.body.innerHTML = `<p>Case not found: ${error?.message || "Unknown error"}</p>`;
+        return;
+     }
+
+     const caseData = data[0];
+     console.log("✅ Case data object:", caseData);
+
+      document.getElementById('title').textContent = caseData.title;
+      document.getElementById('summary').textContent = caseData.summary;
+      document.getElementById('jurisdiction').textContent = `Jurisdiction: ${caseData.jurisdiction}`;
+      document.getElementById('source').href = caseData.source_url;
+
+      const list = document.getElementById('issues');
+      (caseData ["ai-legal-issues"] || []).forEach(issue => {
+        const li = document.createElement('li');
+        li.textContent = issue;
+        list.appendChild(li);
+      });
+    }  
+     window.addEventListener('DOMContentLoaded', loadCase);
+
+  </script>
+</body>
+</html>

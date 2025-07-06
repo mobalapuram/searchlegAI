@@ -1,0 +1,100 @@
+* {
+    padding: 0px;
+    margin: 1px;
+}
+
+body {
+    background-image: url(searchlegAIbg.jpeg);
+    height: 1vh;
+    margin: 15px;
+}
+
+.evendiv {
+    background-color: #00316e;
+    height: auto;
+    text-align: left;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 10px 10px 10px black;
+    font-size: 20px;
+}
+
+.odddiv {
+    background-color: white;
+    color: black;
+    height: auto;
+    text-align: left;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 10px 10px 10px black;
+    font-size: 20px;
+}
+
+.oddheadings {
+    text-align: left;
+    padding: 15px;
+    font-size: 30px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #00316e;
+}
+
+.headings {
+    text-align: left;
+    padding: 15px;
+    font-size: 30px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.Title {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    border-radius: 0%;
+    height: 150px;
+    box-shadow: 10px 10px 10px black;
+
+
+    background-color: #00316e;
+    height: 100px;
+    text-align: left;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 10px 10px 10px black;
+    font-size: 20px;
+}
+
+.caseTitle {
+    margin-left: 20px;
+    display: block;
+    font-size: 56px;
+    font-style: oblique;
+    color: white;
+    font-family: "Nanum Myeongjo", serif;
+}
+
+.oddbody {
+    --textsize: 20px;
+    --textpadding: 2rem;
+
+    display: block;
+    font-size: var(--textsize);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #00316e;
+    padding-left: var(--textpadding);
+}
+
+.evenbody {
+    --textpadding: 2rem;
+
+    display: block;
+    font-size: var(--textsize);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    padding-left: var(--textpadding);
+}
+
